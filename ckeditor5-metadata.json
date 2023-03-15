@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    {
+      "name": "Simple icons",
+      "className": "SimpleIcons",
+      "description": "Adds text to the editor.",
+      "path": "src/simpleicons.js",
+      "uiComponents": [
+        {
+          "name": "simpleIconsButton",
+          "type": "Button",
+          "iconPath": "theme/icons/ckeditor.svg"
+        }
+      ]
+    }
+  ]
+}
