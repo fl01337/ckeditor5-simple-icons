@@ -1,0 +1,34 @@
+/* style.css */
+
+.ck.ck-simple-icons-form {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-gap: 2px;
+}
+
+.ck.ck-simple-icons-form .simple-icons-btn {
+	border-radius: 5px;
+	cursor: pointer;
+	grid-column: span 1;
+	grid-row: span 1;
+}
+
+.ck.ck-simple-icons-form button.cancel {
+	width: 100%;
+	display: block;
+	margin-top: 0.1em;
+	grid-column: span 7;
+	border-top: 5px outset var(--ck-color-base-border);
+}
+.ck.ck-simple-icons-form button.cancel:focus {
+	outline: none;
+	box-shadow: none;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+}
+
+.simple-icons-image.ck-widget img {
+	width: 0.66em;
+	height: 0.66em;
+}
