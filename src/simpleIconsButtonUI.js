@@ -3,7 +3,7 @@ import { ButtonView, ContextualBalloon } from 'ckeditor5/src/ui';
 import ckeditor5Icon from '../theme/icons/ckeditor.svg';
 import SimpleIconsView from './simpleIconsView';
 import './styles.css';
-/* global window */
+/* global Buffer */
 export default class SimpleIconsButtonUI extends Plugin {
 	static get requires() {
 		return [ ContextualBalloon ];
@@ -26,17 +26,18 @@ export default class SimpleIconsButtonUI extends Plugin {
 		this.listenTo( this.simpleIconsView, 'submit', e => {
 			const svg = e.source.icon || null;
 			if ( !svg ) {
-				window.console.log( 'svg not found.', e.source );
-
+				/* eslint-disable */
+				console.log( 'svg not found.', e.source );
+				/* eslint-enable */
 				return false;
 			}
 
 			editor.model.change( writer => {
 				const image = writer.createElement(
 					'imageSimpleIcon',
-					{
-						src: `data:image/svg+xml;base64,${ window.Buffer.from( svg ).toString( 'base64' ) }`
-					}
+					{ /* disable eslint */
+						src: `data:image/svg+xml;base64,${ Buffer.from( svg ).toString( 'base64' ) }`
+					}/* enable eslint */
 				);
 
 				editor.model.insertContent( image );
