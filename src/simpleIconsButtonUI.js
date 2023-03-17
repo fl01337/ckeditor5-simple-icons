@@ -1,10 +1,9 @@
 import { Plugin, icons as defaultIcons } from 'ckeditor5/src/core';
 import { ButtonView, ContextualBalloon } from 'ckeditor5/src/ui';
 import ckeditor5Icon from '../theme/icons/ckeditor.svg';
-// import { ContextualBalloon } from 'ckeditor5/src/ui';
 import SimpleIconsView from './simpleIconsView';
 import './styles.css';
-// import { icons as defaultIcons } from 'ckeditor5/src/core';
+/* global window */
 export default class SimpleIconsButtonUI extends Plugin {
 	static get requires() {
 		return [ ContextualBalloon ];
@@ -27,18 +26,17 @@ export default class SimpleIconsButtonUI extends Plugin {
 		this.listenTo( this.simpleIconsView, 'submit', e => {
 			const svg = e.source.icon || null;
 			if ( !svg ) {
-				/*eslint-disable */
-				console.log( 'svg not found.', e.source );
-				/* eslint-enable */
+				window.console.log( 'svg not found.', e.source );
+
 				return false;
 			}
 
 			editor.model.change( writer => {
 				const image = writer.createElement(
 					'imageSimpleIcon',
-					{ /*eslint-disable */
-						src: `data:image/svg+xml;base64,${ Buffer.from( svg ).toString( 'base64' ) }` 
-					} /* eslint-enable */
+					{
+						src: `data:image/svg+xml;base64,${ window.Buffer.from( svg ).toString( 'base64' ) }`
+					}
 				);
 
 				editor.model.insertContent( image );
