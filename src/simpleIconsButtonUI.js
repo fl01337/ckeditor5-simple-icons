@@ -3,7 +3,8 @@ import { ButtonView, ContextualBalloon } from 'ckeditor5/src/ui';
 import ckeditor5Icon from '../theme/icons/ckeditor.svg';
 import SimpleIconsView from './simpleIconsView';
 import './styles.css';
-/* global Buffer */
+import { encode as base64encode } from 'js-base64';
+
 export default class SimpleIconsButtonUI extends Plugin {
 	static get requires() {
 		return [ ContextualBalloon ];
@@ -36,7 +37,7 @@ export default class SimpleIconsButtonUI extends Plugin {
 				const image = writer.createElement(
 					'imageSimpleIcon',
 					{ /* disable eslint */
-						src: `data:image/svg+xml;base64,${ Buffer.from( svg ).toString( 'base64' ) }`
+						src: `data:image/svg+xml;base64,${ base64encode( svg ) }`
 					}/* enable eslint */
 				);
 

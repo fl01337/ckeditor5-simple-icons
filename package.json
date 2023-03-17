@@ -60,6 +60,7 @@
     "dll:build": "ckeditor5-package-tools dll:build",
     "dll:serve": "http-server ./ -o sample/dll.html",
     "lint": "eslint \"**/*.js\" --quiet",
+    "lint:fix": "eslint \"**/*.js\" --fix",
     "start": "ckeditor5-package-tools start",
     "stylelint": "stylelint --quiet --allow-empty-input 'theme/**/*.css'",
     "test": "ckeditor5-package-tools test",
@@ -81,5 +82,7 @@
       "pre-commit": "lint-staged"
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "js-base64": "^3.7.5"
+  }
 }
